@@ -4,3 +4,6 @@
 [submodule "third-party/cordova-ios"]
 	path = third-party/cordova-ios
 	url = https://github.com/apache/cordova-ios.git
+[submodule "third-party/sample-file"]
+	path = third-party/sample-file
+	url = https://github.com/Icenium/sample-file.git
