@@ -1,0 +1,3 @@
+[submodule "crosswalk-ios"]
+	path = crosswalk-ios
+	url = https://github.com/crosswalk-project/crosswalk-ios.git
