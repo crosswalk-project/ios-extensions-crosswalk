@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:extensions/Presentation/Presentation.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:crosswalk-ios/XWalkView/XWalkView.xcodeproj">
+   </FileRef>
+</Workspace>
