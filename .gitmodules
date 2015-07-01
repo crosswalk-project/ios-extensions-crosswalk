@@ -1,3 +1,6 @@
 [submodule "crosswalk-ios"]
 	path = crosswalk-ios
 	url = https://github.com/crosswalk-project/crosswalk-ios.git
+[submodule "third-party/cordova-ios"]
+	path = third-party/cordova-ios
+	url = https://github.com/apache/cordova-ios.git
