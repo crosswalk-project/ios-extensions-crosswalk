@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB15D9A81B43C0E1004AB9D2 /* XWalkView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB15D9A71B43C0E1004AB9D2 /* XWalkView.framework */; };
 		AB5258DB1B43B7F400123417 /* Presentation.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5258DA1B43B7F400123417 /* Presentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB5258F81B43B92A00123417 /* Presentation.js in Resources */ = {isa = PBXBuildFile; fileRef = AB5258F11B43B92A00123417 /* Presentation.js */; };
 		AB5258F91B43B92A00123417 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5258F21B43B92A00123417 /* Presentation.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB15D9A71B43C0E1004AB9D2 /* XWalkView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XWalkView.framework; path = "../../crosswalk-ios/XWalkView/build/Debug-iphoneos/XWalkView.framework"; sourceTree = "<group>"; };
 		AB5258D51B43B7F400123417 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB5258D91B43B7F400123417 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB5258DA1B43B7F400123417 /* Presentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presentation.h; sourceTree = "<group>"; };
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB15D9A81B43C0E1004AB9D2 /* XWalkView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 		AB5258CB1B43B7F300123417 = {
 			isa = PBXGroup;
 			children = (
+				AB15D9A71B43C0E1004AB9D2 /* XWalkView.framework */,
 				AB5258D71B43B7F400123417 /* Presentation */,
 				AB5258D61B43B7F400123417 /* Products */,
 			);
@@ -310,6 +314,7 @@
 				AB5258ED1B43B7F400123417 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
