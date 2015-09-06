@@ -8,6 +8,6 @@
       location = "group:extensions/Presentation/Presentation.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:crosswalk-ios/XWalkView/XWalkView.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
