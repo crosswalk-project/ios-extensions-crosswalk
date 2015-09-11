@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB375B3C1B43D7F1005A4265 /* Cordova.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB375B361B43D7E3005A4265 /* Cordova.framework */; };
-		AB375B3D1B43D7F1005A4265 /* Cordova.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB375B361B43D7E3005A4265 /* Cordova.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09C6F2C670AE8032BB19E6DD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BB2C019A490040BCC7BDAF /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AB4CDD551A2701D4000841F5 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CDD541A2701D4000841F5 /* CDVDevice.m */; };
 		AB62CCAB1B9C30B600ECB178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62CCA81B9C30B600ECB178 /* AppDelegate.swift */; };
 		AB62CCAC1B9C30B600ECB178 /* CordovaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62CCA91B9C30B600ECB178 /* CordovaViewController.swift */; };
@@ -18,23 +17,6 @@
 		ABF122121A6E6D9800B15F5B /* manifest.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABF122111A6E6D9800B15F5B /* manifest.plist */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		AB375B351B43D7E3005A4265 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB375B311B43D7E3005A4265 /* Cordova.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AB81C99C1A67AB00008E5808;
-			remoteInfo = Cordova;
-		};
-		AB375B3E1B43D7F1005A4265 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AB375B311B43D7E3005A4265 /* Cordova.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = AB81C99B1A67AB00008E5808;
-			remoteInfo = Cordova;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		AB375B3B1B43D7ED005A4265 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -42,7 +24,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AB375B3D1B43D7F1005A4265 /* Cordova.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,7 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AB375B311B43D7E3005A4265 /* Cordova.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cordova.xcodeproj; path = ../../extensions/Cordova/Cordova.xcodeproj; sourceTree = "<group>"; };
+		1B7181D621D99FF365C7789B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		81BB2C019A490040BCC7BDAF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4CDD291A27001D000841F5 /* CordovaPluginDeviceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CordovaPluginDeviceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4CDD2D1A27001D000841F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB4CDD531A2701D4000841F5 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVDevice.h; sourceTree = "<group>"; };
@@ -61,6 +43,7 @@
 		AB62CCAF1B9C30C300ECB178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ABCAC35D1A359C89008C4501 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = CordovaPluginDeviceDemo/www; sourceTree = "<group>"; };
 		ABF122111A6E6D9800B15F5B /* manifest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = manifest.plist; path = ../manifest.plist; sourceTree = "<group>"; };
+		C2EAF7BBAB87579F7F20B9AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,28 +51,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB375B3C1B43D7F1005A4265 /* Cordova.framework in Frameworks */,
+				09C6F2C670AE8032BB19E6DD /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AB375B321B43D7E3005A4265 /* Products */ = {
+		8CFE9609C28C9E05B2DEFBB4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AB375B361B43D7E3005A4265 /* Cordova.framework */,
+				C2EAF7BBAB87579F7F20B9AF /* Pods.debug.xcconfig */,
+				1B7181D621D99FF365C7789B /* Pods.release.xcconfig */,
 			);
-			name = Products;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A560C57EC232FA68DEF0299F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81BB2C019A490040BCC7BDAF /* Pods.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AB4CDD201A27001D000841F5 = {
 			isa = PBXGroup;
 			children = (
-				AB375B311B43D7E3005A4265 /* Cordova.xcodeproj */,
 				ABCAC35D1A359C89008C4501 /* www */,
 				AB4CDD2B1A27001D000841F5 /* CordovaPluginDeviceDemo */,
 				AB4CDD2A1A27001D000841F5 /* Products */,
+				8CFE9609C28C9E05B2DEFBB4 /* Pods */,
+				A560C57EC232FA68DEF0299F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,15 +124,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB4CDD4C1A27001D000841F5 /* Build configuration list for PBXNativeTarget "CordovaPluginDeviceDemo" */;
 			buildPhases = (
+				8680DE2DB00FCD0133DB006D /* Check Pods Manifest.lock */,
 				AB4CDD251A27001D000841F5 /* Sources */,
 				AB4CDD261A27001D000841F5 /* Frameworks */,
 				AB4CDD271A27001D000841F5 /* Resources */,
 				AB375B3B1B43D7ED005A4265 /* Embed Frameworks */,
+				87BC9C883E0B83E540B0364C /* Embed Pods Frameworks */,
+				444ACB91BF9C5CB0B82F62FB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AB375B3F1B43D7F1005A4265 /* PBXTargetDependency */,
 			);
 			name = CordovaPluginDeviceDemo;
 			productName = CordovaPluginDeviceDemo;
@@ -171,28 +166,12 @@
 			mainGroup = AB4CDD201A27001D000841F5;
 			productRefGroup = AB4CDD2A1A27001D000841F5 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AB375B321B43D7E3005A4265 /* Products */;
-					ProjectRef = AB375B311B43D7E3005A4265 /* Cordova.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				AB4CDD281A27001D000841F5 /* CordovaPluginDeviceDemo */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AB375B361B43D7E3005A4265 /* Cordova.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Cordova.framework;
-			remoteRef = AB375B351B43D7E3005A4265 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AB4CDD271A27001D000841F5 /* Resources */ = {
@@ -208,6 +187,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		444ACB91BF9C5CB0B82F62FB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8680DE2DB00FCD0133DB006D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		87BC9C883E0B83E540B0364C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AB4CDD251A27001D000841F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -220,14 +247,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AB375B3F1B43D7F1005A4265 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Cordova;
-			targetProxy = AB375B3E1B43D7F1005A4265 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AB62CCAE1B9C30C300ECB178 /* Main.storyboard */ = {
@@ -319,6 +338,7 @@
 		};
 		AB4CDD4D1A27001D000841F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2EAF7BBAB87579F7F20B9AF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -334,6 +354,7 @@
 		};
 		AB4CDD4E1A27001D000841F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B7181D621D99FF365C7789B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
