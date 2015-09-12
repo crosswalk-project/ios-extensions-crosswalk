@@ -28,6 +28,6 @@ Pod::Spec.new do |s|
         'third-party/cordova-ios/CordovaLib/Classes/Public/NS*.*',
         'third-party/cordova-ios/CordovaLib/Classes/Private/*.{h,m}',
         'third-party/cordova-ios/CordovaLib/Classes/Private/**/*.{h,m}']
-  s.resource = 'extensions/Cordova/Cordova/*.js'
+  s.resource = 'extensions/Cordova/Cordova/*.js', 'extensions/Cordova/Cordova/extensions.plist'
 
 end

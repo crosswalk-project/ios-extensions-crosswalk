@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9AAFAA508FA1EFE82D29D402 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A0C2BE877DBF0478283196 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AB4F878F1BA406DD0017E939 /* extensions.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB4F878E1BA406DD0017E939 /* extensions.plist */; };
 		AB5258DB1B43B7F400123417 /* Presentation.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5258DA1B43B7F400123417 /* Presentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB5258F81B43B92A00123417 /* Presentation.js in Resources */ = {isa = PBXBuildFile; fileRef = AB5258F11B43B92A00123417 /* Presentation.js */; };
 		AB5258F91B43B92A00123417 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5258F21B43B92A00123417 /* Presentation.swift */; };
@@ -22,6 +23,7 @@
 		29A0C2BE877DBF0478283196 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		486B16EC6B2387A17440E434 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8F368CB492B3F8F824D2156C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AB4F878E1BA406DD0017E939 /* extensions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = extensions.plist; sourceTree = "<group>"; };
 		AB5258D51B43B7F400123417 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB5258D91B43B7F400123417 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB5258DA1B43B7F400123417 /* Presentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presentation.h; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		AB5258D71B43B7F400123417 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				AB4F878E1BA406DD0017E939 /* extensions.plist */,
 				AB5258F11B43B92A00123417 /* Presentation.js */,
 				AB5258F21B43B92A00123417 /* Presentation.swift */,
 				AB5258F31B43B92A00123417 /* PresentationSession.js */,
@@ -177,6 +180,7 @@
 			files = (
 				AB5258FC1B43B92A00123417 /* PresentationSessionHost.js in Resources */,
 				AB5258F81B43B92A00123417 /* Presentation.js in Resources */,
+				AB4F878F1BA406DD0017E939 /* extensions.plist in Resources */,
 				AB5258FA1B43B92A00123417 /* PresentationSession.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
