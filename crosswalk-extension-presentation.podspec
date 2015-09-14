@@ -5,7 +5,7 @@
 Pod::Spec.new do |s|
   s.name             = 'crosswalk-extension-presentation'
   s.version          = '1.0'
-  s.summary          = 'Crosswalk extensions for iOS is a set of extensions to extend the ability of Crosswalk.'
+  s.summary          = 'Presentation extension is a Crosswalk extension which implements the W3C Presentation API: http://www.w3.org/TR/presentation-api/'
   s.homepage         = 'https://github.com/crosswalk-project/ios-extensions-crosswalk'
   s.license          = { :type => 'BSD', :file => "LICENSE" }
   s.author           = { 'Jonathan Dong' => 'jonathan.dong@intel.com' }

@@ -4,7 +4,14 @@ The iOS Extension Crosswalk project implements the iOS Crosswalk APIs on top of 
 
 This repository is going to hold all the officially published Crosswalk iOS extensions, as well as the extension demos and samples.
 
+# Extensions
+
+[Cordova](extensions/Cordova/README.md)
+[Presentation](extensions/Presentation/README.md)
+
 # Quickstart
+
+# Development
 
 * Clone the repo with command:
 
