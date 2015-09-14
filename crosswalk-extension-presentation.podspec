@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/crosswalk-project/ios-extensions-crosswalk/tree/master/extensions/Presentation'
   s.license          = { :type => 'BSD', :file => "LICENSE" }
   s.author           = { 'Jonathan Dong' => 'jonathan.dong@intel.com' }
-  s.source           = { :git => 'https://github.com/crosswalk-project/ios-extensions-crosswalk.git', :submodules => true }
+  s.source           = { :git => 'https://github.com/crosswalk-project/ios-extensions-crosswalk.git', :tag => s.version.to_s, :submodules => true }
   s.social_media_url = 'https://twitter.com/xwalk_project'
 
   s.platform = :ios, '8.0'
