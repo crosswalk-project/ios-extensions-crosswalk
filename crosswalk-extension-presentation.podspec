@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
   s.dependency 'crosswalk-ios', '~> 1.1'
 
   s.source_files = 'extensions/Presentation/Presentation/*.{h,m,swift}'
-  s.resource = 'extensions/Presentation/Presentation/*.js', 'extensions/Cordova/Cordova/extensions.plist'
+  s.resource = 'extensions/Presentation/Presentation/*.js', 'extensions/Presentation/Presentation/extensions.plist'
 
 end
