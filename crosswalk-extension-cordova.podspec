@@ -17,17 +17,19 @@ Pod::Spec.new do |s|
   s.module_name = 'Cordova'
   s.dependency 'crosswalk-ios', '~> 1.1'
 
-  s.source_files =['extensions/Cordova/Cordova/*.{h,m,swift}',
-        'third-party/cordova-ios/CordovaLib/Classes/Public/CDVAvail*.*',
-        'third-party/cordova-ios/CordovaLib/Classes/Public/CDVCommandDelegate.h',
-        'third-party/cordova-ios/CordovaLib/Classes/Public/CDVCommandQueue.*',
-        'third-party/cordova-ios/CordovaLib/Classes/Public/CDVInvoked*.*',
-        'third-party/cordova-ios/CordovaLib/Classes/Public/CDVPlugin.*',
-        'third-party/cordova-ios/CordovaLib/Classes/Public/CDVPluginResult.*',
-        'third-party/cordova-ios/CordovaLib/Classes/Public/CDV[S,T,U,W]*.*',
-        'third-party/cordova-ios/CordovaLib/Classes/Public/NS*.*',
-        'third-party/cordova-ios/CordovaLib/Classes/Private/*.{h,m}',
-        'third-party/cordova-ios/CordovaLib/Classes/Private/**/*.{h,m}']
+  s.source_files =[
+    'extensions/Cordova/Cordova/*.{h,m,swift}',
+    'third-party/cordova-ios/CordovaLib/Classes/Public/CDVAvail*.*',
+    'third-party/cordova-ios/CordovaLib/Classes/Public/CDVCommandDelegate*.{h,m}',
+    'third-party/cordova-ios/CordovaLib/Classes/Public/CDVCommandQueue.*',
+    'third-party/cordova-ios/CordovaLib/Classes/Public/CDVInvoked*.*',
+    'third-party/cordova-ios/CordovaLib/Classes/Public/CDVPlugin.*',
+    'third-party/cordova-ios/CordovaLib/Classes/Public/CDVPluginResult.*',
+    'third-party/cordova-ios/CordovaLib/Classes/Public/CDV[S,T,U,W]*.*',
+    'third-party/cordova-ios/CordovaLib/Classes/Public/NS*.*',
+    'third-party/cordova-ios/CordovaLib/Classes/Private/*.{h,m}',
+    'third-party/cordova-ios/CordovaLib/Classes/Private/**/*.{h,m}'
+  ]
   s.resource = 'extensions/Cordova/Cordova/*.js', 'extensions/Cordova/Cordova/extensions.plist'
 
 end
