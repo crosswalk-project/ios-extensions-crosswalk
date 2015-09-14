@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.name             = 'crosswalk-extension-cordova'
   s.version          = '1.0'
   s.summary          = 'Cordova extension is a Crosswalk extension which enables Cordova plugins to integrate with Crosswalk runtime. With this extension you can leverage the existing Cordova plugins to build up your Crosswalk application for iOS.'
-  s.homepage         = 'https://github.com/crosswalk-project/ios-extensions-crosswalk'
+  s.homepage         = 'https://github.com/crosswalk-project/ios-extensions-crosswalk/tree/master/extensions/Cordova'
   s.license          = { :type => 'BSD', :file => "LICENSE" }
   s.author           = { 'Jonathan Dong' => 'jonathan.dong@intel.com' }
   s.source           = { :git => 'https://github.com/crosswalk-project/ios-extensions-crosswalk.git', :submodules => true }
