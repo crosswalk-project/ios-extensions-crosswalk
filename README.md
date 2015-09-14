@@ -12,7 +12,7 @@ This repository is going to hold all the officially published Crosswalk iOS exte
 
 # Quickstart
 
-For hybrid developers, the easiest way to integrate Crosswalk extensions is using CocoaPods. You need to make sure you've already install the CocoaPods on your computer. For the installation and usage of CocoaPods, please refer to: https://cocoapods.org/.
+For hybrid developers, the easiest way to integrate Crosswalk extensions is using CocoaPods. You need to make sure you've already installed the CocoaPods on your computer. For the installation and usage of CocoaPods, please refer to: https://cocoapods.org/.
 
 Basically the only thing you need to do is to create a `Podfile` in your project directory, and add a line of pod dependency which you need to use:
 
@@ -20,10 +20,12 @@ Basically the only thing you need to do is to create a `Podfile` in your project
 pod 'crosswalk-extension-cordova', '~> 1.0'
 ```
 
-And in your app's manifest.json, add a line to load the extension:
+And in your app's manifest.json, add a line in `xwalk_extensions` to load the extension:
 
 ```json
-'xwalk_extensions': 'xwalk.cordova',
+'xwalk_extensions': [
+  'xwalk.cordova'
+],
 ```
 
 Please refer to the instruction of each extension for more details.
