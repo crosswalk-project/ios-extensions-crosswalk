@@ -54,6 +54,8 @@
 		AB98D6291AC949E1009E40C7 /* CDVWhitelist.h in Headers */ = {isa = PBXBuildFile; fileRef = AB98D6271AC949E1009E40C7 /* CDVWhitelist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB98D62A1AC949E1009E40C7 /* CDVWhitelist.m in Sources */ = {isa = PBXBuildFile; fileRef = AB98D6281AC949E1009E40C7 /* CDVWhitelist.m */; };
 		ABCC49AE1BA7AF33008FAF19 /* CDVCommandDelegateImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCC49AD1BA7AEB1008FAF19 /* CDVCommandDelegateImpl.h */; };
+		ABCC4B8C1BA7B734008FAF19 /* CDVPlugin+Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCC4B8A1BA7B734008FAF19 /* CDVPlugin+Resources.h */; };
+		ABCC4B8D1BA7B734008FAF19 /* CDVPlugin+Resources.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCC4B8B1BA7B734008FAF19 /* CDVPlugin+Resources.m */; };
 		ABE8CD631ADB608E00C698D1 /* CDVURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE8CD611ADB608E00C698D1 /* CDVURLProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE8CD641ADB608E00C698D1 /* CDVURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE8CD621ADB608E00C698D1 /* CDVURLProtocol.m */; };
 /* End PBXBuildFile section */
@@ -108,6 +110,8 @@
 		AB98D6271AC949E1009E40C7 /* CDVWhitelist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVWhitelist.h; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVWhitelist.h"; sourceTree = "<group>"; };
 		AB98D6281AC949E1009E40C7 /* CDVWhitelist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVWhitelist.m; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVWhitelist.m"; sourceTree = "<group>"; };
 		ABCC49AD1BA7AEB1008FAF19 /* CDVCommandDelegateImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDVCommandDelegateImpl.h; sourceTree = "<group>"; };
+		ABCC4B8A1BA7B734008FAF19 /* CDVPlugin+Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CDVPlugin+Resources.h"; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVPlugin+Resources.h"; sourceTree = "<group>"; };
+		ABCC4B8B1BA7B734008FAF19 /* CDVPlugin+Resources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CDVPlugin+Resources.m"; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVPlugin+Resources.m"; sourceTree = "<group>"; };
 		ABE8CD611ADB608E00C698D1 /* CDVURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVURLProtocol.h; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVURLProtocol.h"; sourceTree = "<group>"; };
 		ABE8CD621ADB608E00C698D1 /* CDVURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVURLProtocol.m; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVURLProtocol.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +160,8 @@
 				AB4C8E231ABC11F400DF4D8E /* CDVInvokedUrlCommand.m */,
 				AB4C8E241ABC11F400DF4D8E /* CDVPlugin.h */,
 				AB4C8E251ABC11F400DF4D8E /* CDVPlugin.m */,
+				ABCC4B8A1BA7B734008FAF19 /* CDVPlugin+Resources.h */,
+				ABCC4B8B1BA7B734008FAF19 /* CDVPlugin+Resources.m */,
 				AB4C8E261ABC11F400DF4D8E /* CDVPluginResult.h */,
 				AB4C8E271ABC11F400DF4D8E /* CDVPluginResult.m */,
 				AB4C8E281ABC11F400DF4D8E /* CDVScreenOrientationDelegate.h */,
@@ -296,6 +302,7 @@
 				AB81C9A21A67AB00008E5808 /* Cordova.h in Headers */,
 				AB4C8E4A1ABFBA4300DF4D8E /* Cordova_Prefix.pch in Headers */,
 				AB4C8E441ABFB56500DF4D8E /* CDVPlugin+Private.h in Headers */,
+				ABCC4B8C1BA7B734008FAF19 /* CDVPlugin+Resources.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +388,7 @@
 				AB98D6091AC9444F009E40C7 /* CDVUIWebViewEngine.m in Sources */,
 				AB4C8E421ABC139400DF4D8E /* CDVJSON_private.m in Sources */,
 				AB4C8E331ABC11F400DF4D8E /* CDVInvokedUrlCommand.m in Sources */,
+				ABCC4B8D1BA7B734008FAF19 /* CDVPlugin+Resources.m in Sources */,
 				AB4C8E371ABC11F400DF4D8E /* CDVPluginResult.m in Sources */,
 				AB81C9C71A67AB72008E5808 /* CDVViewController.m in Sources */,
 				AB98D6071AC9444F009E40C7 /* CDVUIWebViewDelegate.m in Sources */,

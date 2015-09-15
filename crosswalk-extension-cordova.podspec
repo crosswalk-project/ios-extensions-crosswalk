@@ -24,6 +24,7 @@ Pod::Spec.new do |s|
     'third-party/cordova-ios/CordovaLib/Classes/Public/CDVCommandQueue.*',
     'third-party/cordova-ios/CordovaLib/Classes/Public/CDVInvoked*.*',
     'third-party/cordova-ios/CordovaLib/Classes/Public/CDVPlugin.*',
+    'third-party/cordova-ios/CordovaLib/Classes/Public/CDVPlugin+Resources.*',
     'third-party/cordova-ios/CordovaLib/Classes/Public/CDVPluginResult.*',
     'third-party/cordova-ios/CordovaLib/Classes/Public/CDV[S,T,U,W]*.*',
     'third-party/cordova-ios/CordovaLib/Classes/Public/NS*.*',
