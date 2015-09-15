@@ -53,6 +53,7 @@
 		AB98D6171AC946EA009E40C7 /* CDVUserAgentUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AB98D6151AC946EA009E40C7 /* CDVUserAgentUtil.m */; };
 		AB98D6291AC949E1009E40C7 /* CDVWhitelist.h in Headers */ = {isa = PBXBuildFile; fileRef = AB98D6271AC949E1009E40C7 /* CDVWhitelist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB98D62A1AC949E1009E40C7 /* CDVWhitelist.m in Sources */ = {isa = PBXBuildFile; fileRef = AB98D6281AC949E1009E40C7 /* CDVWhitelist.m */; };
+		ABCC49AE1BA7AF33008FAF19 /* CDVCommandDelegateImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCC49AD1BA7AEB1008FAF19 /* CDVCommandDelegateImpl.h */; };
 		ABE8CD631ADB608E00C698D1 /* CDVURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = ABE8CD611ADB608E00C698D1 /* CDVURLProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABE8CD641ADB608E00C698D1 /* CDVURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE8CD621ADB608E00C698D1 /* CDVURLProtocol.m */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		AB98D6151AC946EA009E40C7 /* CDVUserAgentUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVUserAgentUtil.m; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVUserAgentUtil.m"; sourceTree = "<group>"; };
 		AB98D6271AC949E1009E40C7 /* CDVWhitelist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVWhitelist.h; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVWhitelist.h"; sourceTree = "<group>"; };
 		AB98D6281AC949E1009E40C7 /* CDVWhitelist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVWhitelist.m; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVWhitelist.m"; sourceTree = "<group>"; };
+		ABCC49AD1BA7AEB1008FAF19 /* CDVCommandDelegateImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDVCommandDelegateImpl.h; sourceTree = "<group>"; };
 		ABE8CD611ADB608E00C698D1 /* CDVURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVURLProtocol.h; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVURLProtocol.h"; sourceTree = "<group>"; };
 		ABE8CD621ADB608E00C698D1 /* CDVURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVURLProtocol.m; path = "../../../third-party/cordova-ios/CordovaLib/Classes/Public/CDVURLProtocol.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +197,7 @@
 			children = (
 				AB4F87901BA406F40017E939 /* extensions.plist */,
 				AB81C9B81A67AB72008E5808 /* CDV.h */,
+				ABCC49AD1BA7AEB1008FAF19 /* CDVCommandDelegateImpl.h */,
 				AB81C9BB1A67AB72008E5808 /* CDVViewController.h */,
 				AB81C9BC1A67AB72008E5808 /* CDVViewController.m */,
 				AB57EE6A1ABFE354002314BD /* XWalkWebViewEngine.h */,
@@ -283,6 +286,7 @@
 				AB98D6061AC9444F009E40C7 /* CDVUIWebViewDelegate.h in Headers */,
 				ABE8CD631ADB608E00C698D1 /* CDVURLProtocol.h in Headers */,
 				AB4C8E3D1ABC11F400DF4D8E /* NSMutableArray+QueueAdditions.h in Headers */,
+				ABCC49AE1BA7AF33008FAF19 /* CDVCommandDelegateImpl.h in Headers */,
 				AB0010D11AC4E94F00DA5038 /* CDVCommandQueue.h in Headers */,
 				AB4C8E391ABC11F400DF4D8E /* CDVTimer.h in Headers */,
 				AB4C8E321ABC11F400DF4D8E /* CDVInvokedUrlCommand.h in Headers */,

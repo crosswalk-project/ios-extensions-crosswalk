@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.source_files =[
     'extensions/Cordova/Cordova/*.{h,m,swift}',
     'third-party/cordova-ios/CordovaLib/Classes/Public/CDVAvail*.*',
-    'third-party/cordova-ios/CordovaLib/Classes/Public/CDVCommandDelegate*.{h,m}',
+    'third-party/cordova-ios/CordovaLib/Classes/Public/CDVCommandDelegate.h',
     'third-party/cordova-ios/CordovaLib/Classes/Public/CDVCommandQueue.*',
     'third-party/cordova-ios/CordovaLib/Classes/Public/CDVInvoked*.*',
     'third-party/cordova-ios/CordovaLib/Classes/Public/CDVPlugin.*',
