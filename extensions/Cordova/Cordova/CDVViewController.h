@@ -18,17 +18,21 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 #import "CDVAvailability.h"
 #import "CDVScreenOrientationDelegate.h"
+#import "CDVWebviewEngineProtocol.h"
 #import "CDVWhitelist.h"
-#import <WebKit/WebKit.h>
 
 @protocol CDVCommandDelegate;
+@class CDVCommandQueue;
 
 @interface CDVViewController : UIViewController <WKNavigationDelegate, CDVScreenOrientationDelegate>
 
 @property (nonatomic, readonly, strong) NSMutableDictionary* settings;
 @property (nonatomic, readonly, strong) CDVWhitelist* whitelist; // readonly for public
+@property (nonatomic, strong) CDVCommandQueue* commandQueue;
+@property (nonatomic, strong) id<CDVWebViewEngineProtocol> webViewEngine;
 @property (nonatomic, strong) id<CDVCommandDelegate> commandDelegate;
 
 /**
