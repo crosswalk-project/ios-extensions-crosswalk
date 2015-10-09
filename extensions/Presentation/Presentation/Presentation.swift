@@ -14,8 +14,8 @@ public class Presentation: XWalkExtension {
     override init() {
         super.init()
         if UIScreen.screens().count == 2 {
-            println("external display connected. count:\(UIScreen.screens().count)")
-            var remoteScreen: UIScreen = UIScreen.screens()[1] as! UIScreen;
+            print("external display connected. count:\(UIScreen.screens().count)")
+            let remoteScreen: UIScreen = UIScreen.screens()[1];
             createWindowForScreen(remoteScreen)
             sendAvailableChangeEvent(true)
         }
@@ -60,7 +60,7 @@ public class Presentation: XWalkExtension {
     }
 
     func screenDidDisconnect(notification: NSNotification) {
-        if let screen = notification.object as? UIScreen {
+        if let _ = notification.object as? UIScreen {
             sendAvailableChangeEvent(false)
             remoteWindow?.hidden = true
             remoteViewController?.willDisconnect()

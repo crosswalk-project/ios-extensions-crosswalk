@@ -15,7 +15,7 @@ class RemoteViewController: UIViewController {
         super.viewDidLoad()
 
         webview = XWalkView(frame: view.frame, configuration: WKWebViewConfiguration())
-        webview?.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        webview?.autoresizingMask = UIViewAutoresizing.FlexibleWidth.intersect(UIViewAutoresizing.FlexibleHeight)
         webview?.scrollView.bounces = false
         view.addSubview(webview!)
     }
@@ -39,13 +39,13 @@ class RemoteViewController: UIViewController {
         }
 
         var transform = CGAffineTransformRotate(webview!.transform, CGFloat(rotateAngle / 180.0 * M_PI))
-        var distance = (self.view.frame.height - self.view.frame.width) / 2
+        let distance = (self.view.frame.height - self.view.frame.width) / 2
         transform = CGAffineTransformTranslate(transform, distance, distance)
         webview?.transform = transform
     }
 
     func attachSession(sessionHost: PresentationSessionHost) {
-        var name = "navigator.presentation.session"
+        let name = "navigator.presentation.session"
         if let ext: PresentationSession = XWalkExtensionFactory.createExtension(name) as? PresentationSession {
             sessionHost.peerSession = ext
             ext.peerSessionHost = sessionHost

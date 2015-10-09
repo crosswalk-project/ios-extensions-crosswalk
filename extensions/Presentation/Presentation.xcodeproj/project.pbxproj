@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9AAFAA508FA1EFE82D29D402 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A0C2BE877DBF0478283196 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9AAFAA508FA1EFE82D29D402 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29A0C2BE877DBF0478283196 /* Pods.framework */; };
 		AB4F878F1BA406DD0017E939 /* extensions.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB4F878E1BA406DD0017E939 /* extensions.plist */; };
 		AB5258DB1B43B7F400123417 /* Presentation.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5258DA1B43B7F400123417 /* Presentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB5258F81B43B92A00123417 /* Presentation.js in Resources */ = {isa = PBXBuildFile; fileRef = AB5258F11B43B92A00123417 /* Presentation.js */; };
@@ -148,7 +148,9 @@
 		AB5258CC1B43B7F300123417 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Crosswalk;
 				TargetAttributes = {
 					AB5258D41B43B7F400123417 = {
@@ -257,6 +259,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -335,6 +338,7 @@
 				INFOPLIST_FILE = Presentation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.crosswalk-project.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -351,6 +355,7 @@
 				INFOPLIST_FILE = Presentation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.crosswalk-project.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

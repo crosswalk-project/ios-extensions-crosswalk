@@ -22,7 +22,7 @@ public class PresentationSessionHost: XWalkExtension {
             PresentationSessionHost.presentation!.registerSession(self, id:id!)
             changeState("connected")
         } else {
-            println("Failed to register session:\(id) as Presentation object hasn't been initialized")
+            print("Failed to register session:\(id) as Presentation object hasn't been initialized")
         }
     }
 
