@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09C6F2C670AE8032BB19E6DD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BB2C019A490040BCC7BDAF /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		09C6F2C670AE8032BB19E6DD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BB2C019A490040BCC7BDAF /* Pods.framework */; };
 		AB4CDD551A2701D4000841F5 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CDD541A2701D4000841F5 /* CDVDevice.m */; };
 		AB62CCAB1B9C30B600ECB178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62CCA81B9C30B600ECB178 /* AppDelegate.swift */; };
 		AB62CCAC1B9C30B600ECB178 /* CordovaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62CCA91B9C30B600ECB178 /* CordovaViewController.swift */; };
@@ -147,7 +147,9 @@
 		AB4CDD211A27001D000841F5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Crosswalk;
 				TargetAttributes = {
 					AB4CDD281A27001D000841F5 = {
@@ -280,6 +282,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -343,6 +346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CordovaPluginDeviceDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.crosswalk-project.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CordovaPluginDeviceDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.crosswalk-project.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
