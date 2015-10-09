@@ -9,7 +9,7 @@ For hybrid application developers, the easiest way to integrate Cordova extensio
 Add `crosswalk-extension-cordova` into your Podfile:
 
 ```
-pod 'crosswalk-extension-cordova', '~> 1.0'
+pod 'crosswalk-extension-cordova', '~> 1.1'
 ```
 
 Then use 'pod install' to install pods and create the workspace for the project.

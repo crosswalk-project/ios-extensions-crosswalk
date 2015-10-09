@@ -17,7 +17,7 @@ For hybrid developers, the easiest way to integrate Crosswalk extensions is usin
 Basically the only thing you need to do is to create a `Podfile` in your project directory, and add a line of pod dependency which you need to use:
 
 ```bash
-pod 'crosswalk-extension-cordova', '~> 1.0'
+pod 'crosswalk-extension-cordova', '~> 1.1'
 ```
 
 And in your app's manifest.json, add a line in `xwalk_extensions` to load the extension:
