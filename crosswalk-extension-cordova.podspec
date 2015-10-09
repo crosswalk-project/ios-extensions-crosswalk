@@ -4,7 +4,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'crosswalk-extension-cordova'
-  s.version          = '1.0'
+  s.version          = '1.1'
   s.summary          = 'Cordova extension is a Crosswalk extension which enables Cordova plugins to integrate with Crosswalk runtime.'
   s.homepage         = 'https://github.com/crosswalk-project/ios-extensions-crosswalk/tree/master/extensions/Cordova'
   s.license          = { :type => 'BSD', :file => "LICENSE" }
@@ -12,10 +12,10 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/crosswalk-project/ios-extensions-crosswalk.git', :tag => s.version.to_s, :submodules => true }
   s.social_media_url = 'https://twitter.com/xwalk_project'
 
-  s.platform = :ios, '8.0'
-  s.ios.deployment_target = '8.0'
+  s.platform = :ios, '8.1'
+  s.ios.deployment_target = '8.1'
   s.module_name = 'Cordova'
-  s.dependency 'crosswalk-ios', '~> 1.1'
+  s.dependency 'crosswalk-ios', '~> 1.2'
 
   s.source_files =[
     'extensions/Cordova/Cordova/*.{h,m,swift}',

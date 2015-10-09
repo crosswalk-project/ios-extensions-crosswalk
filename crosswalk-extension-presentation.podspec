@@ -4,7 +4,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'crosswalk-extension-presentation'
-  s.version          = '1.0'
+  s.version          = '1.1'
   s.summary          = 'Presentation extension is a Crosswalk extension which implements the W3C Presentation API: http://www.w3.org/TR/presentation-api/'
   s.homepage         = 'https://github.com/crosswalk-project/ios-extensions-crosswalk/tree/master/extensions/Presentation'
   s.license          = { :type => 'BSD', :file => "LICENSE" }
@@ -12,10 +12,10 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/crosswalk-project/ios-extensions-crosswalk.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/xwalk_project'
 
-  s.platform = :ios, '8.0'
-  s.ios.deployment_target = '8.0'
+  s.platform = :ios, '8.1'
+  s.ios.deployment_target = '8.1'
   s.module_name = 'Presentation'
-  s.dependency 'crosswalk-ios', '~> 1.1'
+  s.dependency 'crosswalk-ios', '~> 1.2'
 
   s.source_files = 'extensions/Presentation/Presentation/*.{h,m,swift}'
   s.resource = 'extensions/Presentation/Presentation/*.js', 'extensions/Presentation/Presentation/extensions.plist'
