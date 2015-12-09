@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'/>
+        <style>
+            input.iapButton {
+                border:1px solid black;
+                height:30px;
+                width:40%;
+                margin: 5px;
+            }
+            input.iapDiv {
+                text-align:center;
+            }
+        </style>
+        <title>Sample of In-app purchase</title>
+    </head>
+
+    <script type='text/javascript'>
+    function onload() {
+        navigator.iap.init({channel: "AppleStore"}).then(function() {
+            document.getElementById("result").innerHTML += "Intialization succeeded.";
+        }).catch(function(e) {
+            document.getElementById("result").innerHTML += "Intialization failed: " + e.name;
+        });
+    }
+
+    function query() {
+        navigator.iap.queryProductsInfo(["org.xwalktest.iap", "org.xwalktest1.iap",
+                                         "org.xwalktest.cherry", "org.xwalktest.grape",
+                                         "org.xwalktest.peach"]).then(function(products) {
+            document.getElementById("result").innerHTML = "";
+            var buttonStyle = "display:inline-block; padding: 5px 20px; border: 1px solid black";
+            var html = "<ul>";
+            for (var i=0; i<products.length; i++) {
+              html += "<li>" +
+                      "<h3>" + products[i]["title"] + "</h3>" +
+                      "<p>Description: " + products[i]["description"] + "</p>" +
+                      "<p>Price: " + products[i]["price"] + "</p>" +
+                      "<input " +
+                      "id='" + products[i]["productId"] + "' " +
+                      "value='buy " + products[i]["title"] + "' " +
+                      "onclick=purchase('" +  products[i]["productId"] + "') " +
+                      "type='button'>" +
+                      "</input>" +
+                      "</li>";
+            }
+            html += "</ul>";
+            document.getElementById("result").innerHTML = html;
+        });
+    }
+
+    function getReceipt() {
+        navigator.iap.getReceipt().then(function(receipt) {
+            document.getElementById("result").innerHTML = "Receipt: " + receipt;
+        }).catch(function(e) {
+            document.getElementById("result").innerHTML = "Operation failed: " + e.name;
+        });
+    }
+
+    function validateReceipt() {
+        navigator.iap.validateReceipt().then(function() {
+            document.getElementById("result").innerHTML = "Validation succeeded.";
+        }).catch(function(e) {
+            document.getElementById("result").innerHTML = "Validation failed: " + e.name;
+        });
+    }
+
+    function purchase(productId) {
+        navigator.iap.purchase({"productId": productId, "count": 1}).then(function(result) {
+            document.getElementById("result").innerHTML = "Purchase succeeded.";
+        }).catch(function(e) {
+            document.getElementById("result").innerHTML = "Purchase failed: " + e.name;
+        });
+    }
+
+    function restore() {
+        navigator.iap.restore().then(function(products) {
+            var html = "<p>Products restored:</p>";
+            html += "<ul>";
+            for (var i=0; i<products.length; i++) {
+              html += "<li>" + products[i] + "</li>";
+            }
+            html += "</ul>";
+            document.getElementById("result").innerHTML = html;
+        }).catch(function(e) {
+            document.getElementById("result").innerHTML = "Restore failed:" + e.name;
+        });
+    }
+    </script>
+
+    <body onload='onload();'>
+        <h2>Sample of In-app purchase</h2>
+        <div id='iapDiv'>
+            <input class='iapButton' type='button' value='Query Products' onclick=query() />
+            <input class='iapButton' type='button' value='Validate Receipt' onclick=validateReceipt() />
+        </div>
+        <div class='iapDiv'>
+            <input class='iapButton' type='button' value='Get Receipt' onclick=getReceipt() />
+            <input class='iapButton' type='button' value='Restore' onclick=restore() />
+        </div>
+        <div style="color:red">DO NOT USE REAL APPLE ID TO TEST!!!</div>
+        <div>Use the following account to run this demo:</div>
+        <div>User name: tom.wang@gmail.com</div>
+        <div>Password: Intel@123</div>
+        <div id="result" style="width:100%; height:100px; word-wrap: break-word; word-break: normal;"></div>
+    </body>
+</html>
