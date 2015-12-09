@@ -5,9 +5,4 @@
 platform :ios, '8.1'
 use_frameworks!
 
-workspace 'iOSExtensions'
-xcodeproj 'extensions/Cordova/Cordova'
-xcodeproj 'extensions/Presentation/Presentation'
-xcodeproj 'extensions/IAP/IAP'
-
-pod 'crosswalk-ios', '~> 1.2'
+pod 'crosswalk-extension-iap’, :path => '../../'

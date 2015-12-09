@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:extensions/IAP/IAP.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:extensions/Cordova/Cordova.xcodeproj">
    </FileRef>
    <FileRef
