@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      In-App Purchase API
+    </title>
+    <script src='https://www.w3.org/Tools/respec/respec-w3c-common'
+            async class='remove'></script>
+    <script class="remove">
+    var respecConfig = {
+        specStatus: 'ED',
+        edDraftURI: 'http://10.238.157.53/html/iap.html',
+        shortName:  'IAP-api',
+        editors: [
+          {
+            w3cid: 63802,
+            name: 'Minggang Wang',
+            company: 'Intel',
+            note: 'until Nov 2015'
+          }
+        ],
+        previousMaturity: 'WD',
+        previousPublishDate: '2015-07-01',
+        localBiblio: {
+          PROMGUIDE: {
+            title: 'Writing Promise-Using Specifications',
+            href: 'http://www.w3.org/2001/tag/doc/promises-guide',
+            authors: [
+              'Domenic Denicola'
+            ],
+            status: 'finding',
+            publisher: 'W3C'
+          }
+        },
+      };
+    </script>
+    <style>
+    /* Note formatting taken from HTML5 spec */
+    .note { border-left-style: solid; border-left-width: 0.25em; background: none repeat scroll 0 0 #E9FBE9; border-color: #52E052; }
+    .note em, .warning em, .note i, .warning i { font-style: normal; }
+    p.note, div.note { padding: 0.5em 2em; }
+    span.note { padding: 0 2em; }
+    .note p:first-child { margin-top: 0; }
+    .note p:last-child { margin-bottom: 0; }
+    p.note:before { content: 'NOTE: '; }
+    .non-normative { border-left-style: solid; border-left-width: 0.25em; background: none repeat scroll 0 0 #E9FBE9; border-color: #52E052; }
+    p.non-normative:before { content: 'Non-normative: '; font-weight: bolder;}
+    p.non-normative, div.non-normative { padding: 0.5em 2em; }
+
+
+    /* Pre.idl formatting taken from HTML5 spec */
+    pre.idl { border: solid thin #d3d3d3; background: #FCFCFC; color: black; padding: 0.5em 1em; position: relative; }
+    pre.idl :link, pre.idl :visited { color: inherit; background: transparent; }
+    pre.idl::before { content: "IDL"; font: bold small sans-serif;
+    padding: 0.5em; background: white; position: absolute; top: 0;
+    margin: -1px 0 0 -4em; width: 1.5em; border: thin solid;
+    border-radius: 0 0 0 0.5em }
+
+    /* .example idl formatting taken from HTML5 nightly spec */
+    .example {
+        display: block;
+        color: #222222;
+        background: #FCFCFC;
+        border-left-style: solid;
+        border-color: #c0c0c0;
+        border-left-width: 0.25em;
+        margin-left: 1em;
+        padding-left: 1em;
+        padding-bottom: 0.5em;
+    }
+
+    .algorithm li {
+        margin-bottom: 0.5em;
+    }
+
+    .interface dd, .parameters dt {
+        margin-bottom: 0.5em;
+    }
+
+    code { color: orangered; }
+    table { border-collapse: collapse; border-style: hidden hidden none hidden; }
+    table thead, table tbody { border-bottom: solid; }
+    table td, table th { border-left: solid; border-right: solid; border-bottom: solid thin; vertical-align: top; padding: 0.2em; }
+    dfn { font-weight: bolder; font-style: normal; }
+    .copyright { font-size: small; }
+    .issue[id^='issue-'] > *:not([role='heading']) { display: none; }
+    </style>
+  </head>
+  <body>
+    <section id="abstract">
+      <p>
+        This specification defines an API to enable in-app purchase on web.
+      </p>
+    </section>
+    <section id="sotd">
+      <p>
+        This document is a <b>work in progress</b> and is subject to change.
+        Some sections are still incomplete or underspecified. <a href=
+        "#security-and-privacy-considerations">Security and privacy
+        considerations</a> need to be adjusted based on feedback and
+        experience. Some open issues are noted inline; please check the group's
+        <a href="https://github.com/w3c/presentation-api/issues">issue
+        tracker</a> on GitHub for all open issues.
+      </p>
+    </section>
+    <section class="informative">
+      <h2>
+        Introduction
+      </h2>
+      <p>
+      	This specification aims to make <dfn>In-App Purchase</dfn>(IAP), such as buying virtual goods on Google Play
+      	or Apple Store, available to the web. Thus, user can purchase  additional digital content,
+      	functionality, services and even subscriptions within paid or free web apps.
+      </p>
+      <p>
+      	At its core, the <a href="#idl-def-iap"><code>iap</code></a> enables all necessary
+      	operations in IAP.
+      </p>
+    </section>
+  
+    <section>
+      <h2>
+        Terminology
+      </h2>
+      <p>
+        This document provides interface definitions using the Web IDL standard
+        ([[!WEBIDL]]). The terms <dfn><a href="https://heycam.github.io/webidl/#idl-promise">Promise</a></dfn>
+        and <a href="http://heycam.github.io/webidl/#idl-DOMException"><dfn>DOMException</dfn></a>
+        are defined in [[!WEBIDL]].
+      </p>
+      <p>
+        The terms <dfn data-lt="resolve"><a href=
+        "http://www.w3.org/2001/tag/doc/promises-guide#resolve-promise">resolving
+        a Promise</a></dfn>, and <dfn data-lt="reject"><a href=
+        "http://www.w3.org/2001/tag/doc/promises-guide#reject-promise">rejecting
+        a Promise</a></dfn> are used as explained in [[!PROMGUIDE]].
+      </p>
+    </section>
+    
+    <section>
+      <h2>
+        API
+      </h2>
+      <section>
+        <h3>
+          Interface <a><code>IAP</code></a>
+        </h3>
+        <pre class="idl">
+          partial interface Navigator {
+            [SameObject] readonly attribute IAP iap;
+          };
+
+        </pre>
+        <p>
+          The <dfn for="Navigator"><code>iap</code></dfn> attribute is
+          used to retrieve an instance of the <a>IAP</a> interface.
+        </p>
+        <pre class="idl">
+          interface IAP : EventTarget {
+            Promise&lt;void&gt; init(InitOptions options);
+            Promise&lt;sequence&lt;Product&gt;&gt; queryProductsInfo(sequence&lt;DOMString&gt; productIds);
+            Promise&lt;PurchaseResult&gt; purchase(Order order);
+            Promise&lt;DOMString&gt; getReceipt();
+            Promise&lt;void&gt; validateReceipt();
+            Promise&lt;sequence&lt;DOMString&gt;&gt; restore();
+          };
+				</pre>
+
+        <section>
+          <h4>
+            Initializing the <code>iap</code>
+          </h4>
+          <p>
+            When <code><dfn for="IAP">init</dfn>(options)</code> method is called, <code>iap</code> will
+            be initiated by the given parameter <code>options</code>.
+          </p>
+          <dl>
+            <dt>
+              Input
+            </dt>
+            <dd>
+              <code>options</code>, the
+              <a><code>InitOptions</code></a> dictionary
+            </dd>
+            <dt>
+              Output
+            </dt>
+            <dd>
+              <em>P</em>, a <a>Promise</a>
+            </dd>
+          </dl>
+          <ol>
+            <li>If the <code>iap</code> has already been initialized, return a <a>Promise</a> rejected with
+                a <a>DOMException</a> named <code>"InvalidStateError"</code>.
+            </li>
+            <li>
+              If the value of key <code><a href="#widl-InitOptions-channel">channel</a></code> is undefined, return a <a>Promise</a> rejected with a <a>DOMException</a> named <code>"InvalidAccessError"</code>.
+            </li>
+            <li>
+              Let <em>P</em> be a new <a>Promise</a>.
+            </li>
+            <li>
+              Return <em>P</em>.
+            </li>
+            <li>Run the following steps:
+              <ol>
+                <li>
+                  Initialize the specified channel.
+                </li>
+                <li>Wait until the initialization completes.
+                </li>
+              </ol>
+            </li>
+            <li>If the specified <code><a href="#widl-InitOptions-channel">channel</a></code> is not suppported, then:
+              <ol>
+                <li><a>Reject</a> <em>P</em> with a <a>DOMException</a> named <code>"NotSupportedError"</code>.
+                </li>
+              </ol>
+            </li>
+            <li>If an error occurs during initialization, then:
+              <ol>
+                <li>
+                  <a>Reject</a> <em>P</em> with a <a>DOMException</a> named <code>"OperationError"</code>.
+                </li>
+              </ol>
+            </li>
+            <li>
+              <a>Resolve</a> <em>P</em>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h4>
+            Querying the detailed information of products.
+          </h4>
+          <p>
+            When <code><dfn for="IAP">queryProductsInfo</dfn>(producdIds)</code> method is called,
+            <code>iap</code> will get the detailed informations of the products by their Ids passed
+            in the array.
+          </p>
+          <dl>
+            <dt>
+              Input
+            </dt>
+            <dd>
+              <code>producdIds</code>, an array of the product's Ids you want to query.
+            </dd>
+            <dt>
+              Output
+            </dt>
+            <dd>
+              <em>P</em>, a <a>Promise</a>
+            </dd>
+          </dl>
+          <ol>
+            <li>
+              If the <code>iap</code> has not been initialized, return a <a>Promise</a> rejected with
+                a <a>DOMException</a> named <code>"InvalidStateError"</code>.
+            </li>
+            <li>If the <code>productIds</code> is undefined, return a <a>Promise</a> rejected with a <a>DOMException</a> whose
+                name is <code>"InvalidAccessError"</code>.
+            </li>
+            <li>
+              Let <em>P</em> be a new <a>Promise</a>.
+            </li>
+            <li>
+              Return <em>P</em>.
+            </li>
+            <li>
+              Query the product by its id.
+            </li>
+            <li>
+              If an error occurs then:
+              <ol>
+                <li>
+                  <a>Reject</a> <em>P</em> with a <a>DOMException</a> named <code>"OperationError"</code>.
+                </li>
+              </ol>
+            </li>
+            <li>
+              If the querying completes successfully, then run the following steps:
+              <ol>
+                <li>
+                  Let <em>array</em> be an empty array.
+                </li>
+                <li>
+                  For each <a href="#idl-def-Product">product</a> detail, add it to the <em>array</em>
+                </li>
+                <li>
+                  <a>Resolve</a> <em>P</em> with <em>array</em>.
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h4>
+            Purchasing a product.
+          </h4>
+          <p>
+            When <code><dfn for="IAP">purchase</dfn>(order)</code> method is called,
+            <code>iap</code> will process the order. 
+          </p>
+          <dl>
+            <dt>
+              Input
+            </dt>
+            <dd>
+              <code>order</code>, an order which specifies the purchase.
+            </dd>
+            <dt>
+              Output
+            </dt>
+            <dd>
+              <em>P</em>, a <a>Promise</a>
+            </dd>
+          </dl>
+          <ol>
+            <li>
+              If the <code>iap</code> has not been initialized, return a <a>Promise</a> rejected with
+              a <a>DOMException</a> named <code>"InvalidStateError"</code>.
+            </li>
+            <li>
+              If the value of key <a href="#widl-PurchaseResult-productId">productId</a> is undefined,
+              return a <a>Promise</a> rejected with a <a>DOMException</a> named <code>"InvalidAccessError"</code>.
+            </li>
+            <li>
+              Let <em>P</em> be a new <a>Promise</a>.
+            </li>
+            <li>
+              Return <em>P</em>.
+            </li>
+            <li>
+              If an error occurs then:
+              <ol>
+                <li>
+                  <a>Reject</a> <em>P</em> with a <a>DOMException</a> named <code>"OperationError"</code>.
+                </li>
+              </ol>
+            </li>
+            <li>
+              If buying the product successfully, then run the following steps:
+              <ol>
+                <li>
+                  Let <em>S</em> be the <a>PurchaseResult</a>.
+                </li>
+                <li>
+                <a>Resolve</a> <em>P</em> with <em>S</em>.
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h4>
+            Getting the receipt.
+          </h4>
+          <p>
+            When <code><dfn for="IAP">getReceipt</dfn>()</code> method is called,
+            <code>iap</code> will get the receipt of the in-app purchase.
+          </p>
+          <dl>
+            <dt>
+              Input
+            </dt>
+            <dd>
+            	No parameters.
+            </dd>
+            <dt>
+              Output
+            </dt>
+            <dd>
+              <em>P</em>, a <a>Promise</a>
+            </dd>
+          </dl>
+          <ol>
+            <li>
+              If the <code>iap</code> has not been initialized, return a <a>Promise</a> rejected with
+              a <a>DOMException</a> named <code>"InvalidStateError"</code>.
+            </li>
+            <li>
+              Let <em>P</em> be a new <a>Promise</a>.
+            </li>
+            <li>
+              Return <em>P</em>.
+            </li>
+            <li>
+              If an error occurs then:
+              <ol>
+                <li>
+                  <a>Reject</a> <em>P</em> with a <a>DOMException</a> named <code>"OperationError"</code>.
+                </li>
+              </ol>
+            </li>
+            <li>
+            	If getting the receipt successfully, then run the following steps:
+              <ol>
+                <li>
+                  <a>Resolve</a> <em>P</em> with the requested receipt.
+                </li>
+              </ol>
+            </li>
+          </ol>
+          <div class="note">
+            The receipt could be considered as a record of the purchase in the app. After purchasing
+            the product, you can use this receipt to continue to make it available.
+          </div>
+        </section>
+        <section>
+          <h4>
+            Validating the receipt.
+          </h4>
+          <p>
+            When <code><dfn for="IAP">validateReceipt</dfn>()</code> method is called,
+            <code>iap</code> will validate the receipt.
+          </p>
+          <dl>
+            <dt>
+              Input
+            </dt>
+            <dd>
+							<code>receipt</code>, DOMString.
+            </dd>
+            <dt>
+              Output
+            </dt>
+            <dd>
+              <em>P</em>, a <a>Promise</a>
+            </dd>
+          </dl>
+          <ol>
+            <li>
+              If the <code>iap</code> has not been initialized, return a <a>Promise</a> rejected with
+              a <a>DOMException</a> named <code>"InvalidStateError"</code>.
+            </li>
+            <li>
+              Let <em>P</em> be a new <a>Promise</a>.
+            </li>
+            <li>
+              Return <em>P</em>.
+            </li>
+            <li>
+              If an error occurs then:
+              <ol>
+                <li>
+                  <a>Reject</a> <em>P</em> with a <a>DOMException</a> named <code>"OperationError"</code>.
+                </li>
+              </ol>
+            </li>
+            <li>
+            	If getting the receipt successfully, then run the following steps:
+    						<ol>
+	                <li>
+	                	If the receipt is invalid, then:
+  	    						<ol>
+	                		<li>
+	                  		<a>Reject</a> <em>P</em> with a <a>DOMException</a> named <code>"AbortError"</code>.
+	                  	</li>
+	                  </ol>
+	                </li>
+                </ol>
+                <ol>
+	                <li>
+	                	If the receipt is valid, then:
+  	    						<ol>
+	                		<li>
+	                  		<a>Resolve</a> <em>P</em>.
+	                  	</li>
+	                  </ol>
+	                </li>
+                </ol>
+            </li>
+          </ol>
+          <div class="note">
+            Validating the receipt can help to prevent unauthorized copies from running.
+          </div>
+        </section>
+        <section>
+          <h4>
+            Restoring the purchased products.
+          </h4>
+          <p>
+            When <code><dfn for="IAP">restore</dfn>()</code> method is called,
+            <code>iap</code> will restore the previous purchases.
+          </p>
+          <dl>
+            <dt>
+              Input
+            </dt>
+            <dd>
+							No parameters.
+            </dd>
+            <dt>
+              Output
+            </dt>
+            <dd>
+              <em>P</em>, a <a>Promise</a>
+            </dd>
+          </dl>
+          <ol>
+            <li>
+              If the <code>iap</code> has not been initialized, return a <a>Promise</a> rejected with
+              a <a>DOMException</a> named <code>"InvalidStateError"</code>.
+            </li>
+            <li>
+              Let <em>P</em> be a new <a>Promise</a>.
+            </li>
+            <li>
+              Return <em>P</em>.
+            </li>
+            <li>
+            	If the task fails, run the following steps:
+            	<ol>
+            		<li>
+            			<a>Reject</a> <em>P</em> with a <a>DOMException</a> named <code>"OperationError"</code>.
+            		</li>
+            	</ol>
+            </li>
+            <li>
+              If restoring successfully, then run the following steps:
+              <ol>
+                <li>
+                  Let <em>S</em> be the array of restored product ID.
+                </li>
+                <li>
+                <a>Resolve</a> <em>P</em> with  <em>S</em>.
+                </li>
+              </ol>
+            </li>
+          </ol>
+        <div class="note">
+        	Restoring occurs, for example, when users upgrade their device to
+        	a new one, they don't lose all of the items which were purchansed on the old device.
+        </div>
+        </section>
+
+        <section>
+        <h2>Dictionaries</h2>
+        <p>
+        	An <a>InitOptions</a> dictionary is a base type that specifies the <code>iap</code>,
+        	such as channel and key attributes.
+        </p>
+        <dl class="idl" title="dictionary InitOptions">
+          <dt>DOMString channel</dt>
+          <dd>The name of the channel which you want to select.</dd>
+          <dt>DOMString key</dt>
+          <dd>The public licensing key of this application if it exists.</dd>
+        </dl>
+        <div class="note">
+					The <code>channel</code> means the store from which you want to purchase product. Once
+					the <code>iap</code> is bound to a specified <code>channel</code>, it can't be changed
+					in the context.
+        </div>
+        <p> 
+        	A <a>Product</a> dictionary represents a thing sold in the application, which could be
+          <ul>
+            <li>
+              Content
+            </li>
+            <li>
+              Functionality
+            </li>
+            <li>
+              Services
+            </li>
+            <li>
+              Subscriptions
+            </li>
+          </ul>
+        </p>
+        <dl class="idl" title="dictionary Product">
+          <dt>DOMString productId</dt>
+          <dd>The Id of the product.</dd>
+          <dt>DOMString title</dt>
+          <dd>The title of the product.</dd>
+          <dt>DOMString description</dt>
+          <dd>A detailed description of the product.</dd>
+          <dt>DOMString currencyCode</dt>
+          <dd>The currency code of this product used.</dd>
+          <dt>double price</dt>
+          <dd>The price of the product.</dd>
+        </dl>
+        <p>
+        	A <a>PurchaseResult</a> dictionary represents the result of purchase or result when users restore
+          transactions to maintain access to content they've already purchased. 
+        </p>
+        <dl class="idl" title="dictionary PurchaseResult">
+          <dt>DOMString productId</dt>
+          <dd>The Id of the purchased product.</dd>
+          <dt>DOMString transactionId</dt>
+          <dd>The transaction Id of this purchase used.</dd>
+          <dt>DOMString productReceipt</dt>
+          <dd>The receipt of the purchased product.</dd>
+          <dt>DOMString packageName</dt>
+          <dd>The package name of the application.</dd>
+          <dt>DOMString purchaseTime</dt>
+          <dd>The time when the purchase happened</dd>
+          <dt>DOMString purchaseState</dt>
+          <dd>The state of the purchase.</dd>
+        </dl>
+        <p>
+        	An <a>Order</a> dictionary represents the detailed information used to purchase the product.
+        </p>
+        <dl class="idl" title="dictionary Order">
+          <dt>DOMString productId</dt>
+          <dd>The Id of the purchased product.</dd>
+          <dt>DOMString userInfo</dt>
+          <dd>Additional information of the user to be attached to the order.</dd>
+          <dt>unsigned long count</dt>
+          <dd>The quantity of the product.</dd>
+          <dt>double price</dt>
+          <dd>The price of the product.</dd>
+          <dt>dictionary extraInfo</dt>
+          <dd>Additional information used to be attached to the order.</dd>
+        </dl>
+      </section>
+    </section>
+  </section>
+  <section>
+    <h2>
+      Examples
+    </h2>
+      <section>
+        <h3>
+          Initialization example
+        </h3>
+          <pre class="example highlight">
+&lt;script&gt;
+  function onload() {
+    navigator.iap.init({channel:"GooglePlay", key:"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsEVjLWKJ5B7EKjnH5NV"}).then(function() {
+      document.getElementById("resultDiv").innerHTML = "Initialization finished.";
+    }).catch(function(e) {
+      console.log(e.name);
+    });
+  }
+&lt;/script&gt;
+
+&lt;body onload='onload()'&gt;
+  &lt;div id="resultDiv"&gt;&lt;/div&gt;
+&lt;/body&gt;
+          </pre>
+       </section>
+       <section>
+        <h3>
+          Query and buy a product example
+        </h3>
+          <pre class="example highlight">
+&lt;script&gt;
+  function queryProduct() {
+    navigator.iap.queryProductsInfo(["facebook"])).then(function(products) {
+    document.getElementById("resultDiv").innerHTML = "";
+    for (var i=0; i&lt;products.length; i++) {
+      var productId = "ID: " + products[i]["productId"] + "&lt;br&gt;";
+      var price = "Price: " + products[i]["price"] + "&lt;br&gt;";
+      var description = "Description: " products[i]["description"] + "&lt;br&gt;";
+      document.getElementById("resultDiv").innerHTML += productId + price + description;
+    }}).catch(function(e) {
+      console.log(e.name);
+    });
+  }
+  
+  function purchaseProduct() {
+    navigator.iap.purchase({productId:"facebook"}).then(function(result)) {
+      document.getElementById("resultDiv").innerHTML = "";
+      var transactionId = "Transaction: " + result["transactionId"] + "&lt;br&gt;";
+      var receipt = "Receipt: " + result["productReceipt"] + "&lt;br&gt;";
+      document.getElementById("resultDiv").innerHTML += transactionId + receipt;
+    }).catch(function(e) {
+      console.log(e.name);
+    });
+  }
+&lt;/script&gt;
+
+&lt;body&gt;
+  &lt;button id="queryBtn" style="display: none;" onclick="queryProduct()"&gt;Query Product&lt;/button&gt;
+  &lt;button id="purchaseBtn" style="display: none;" onclick="purchaseProduct()"&gt;Purchase Product&lt;/button&gt;
+  &lt;div id="resultDiv"&gt;&lt;/div&gt;
+&lt;/body&gt;
+				</pre>
+      </section>
+    	<section>
+        <h3>
+          Get and validate receipt example
+        </h3>
+          <pre class="example highlight">
+&lt;script&gt;
+  function getReceipt() {
+    navigator.iap.getReceipt().then(function(receipt) {
+      document.getElementById("resultDiv").innerHTML = receipt;
+    }).catch(function(e) {
+      console.log(e.name);
+    });
+
+  function validateReceipt().then(function() {
+    document.getElementById("resultDiv").innerHTML = "Validation passed!";
+  }).catch(function(e.name) {
+    console.log(e.name);
+  });
+&lt;/script&gt;
+
+&lt;body&gt;
+  &lt;button id="getBtn" style="display: none;" onclick="getReceipt()"&gt;receipt&lt;/button&gt;
+  &lt;button id="validateBtn" style="display: none;" onclick="validateReceipt()"&gt;Validate receipt&lt;/button&gt;
+  &lt;div id="resultDiv"&gt;&lt;/div&gt;
+&lt;/body&gt;
+				</pre>
+      </section>
+  </section>
+  </body>
+</html>
