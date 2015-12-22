@@ -8,5 +8,6 @@ use_frameworks!
 workspace 'iOSExtensions'
 xcodeproj 'extensions/Cordova/Cordova'
 xcodeproj 'extensions/Presentation/Presentation'
+xcodeproj 'extensions/InAppPurchase/InAppPurchase'
 
 pod 'crosswalk-ios', '~> 1.2'
