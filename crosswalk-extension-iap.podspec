@@ -4,7 +4,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'crosswalk-extension-iap'
-  s.version          = '1.0'
+  s.version          = '1.2'
   s.summary          = 'IAP extension is a Crosswalk extension which implements the in-app purchase on iOS'
   s.homepage         = 'https://github.com/crosswalk-project/ios-extensions-crosswalk/tree/master/extensions/InAppPurchase'
   s.license          = { :type => 'BSD', :file => "LICENSE" }
